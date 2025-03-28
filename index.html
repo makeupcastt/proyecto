@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>pizzas castt</title>
+  <style>
+    body {
+      background-color: #f22bb6;
+      color: #f1f0f0;
+      font-family: 'Open Sans', sans-serif;
+      text-align: center;
+      margin: 0;
+      padding: 0;
+    }
+    
+    
+    
+    .seccion {
+      display: none;
+    }
+    
+    .activa {
+      display: block;
+    }
+  </style>
+</head>
+<body>
+  <div id="bienvenida" class="seccion activa contenedor">
+    <h1>BIENVENIDO A PIZZAS CASTT!!!!</h1>
+    <p>El mejor sabor en cada bocado. ¡Haz tu pedido ahora!</p>
+    <button id="comenzar">Hacer Pedido</button>
+  </div>
+  <div id="formulario-seccion" class="seccion contenedor">
+    <h1>Elige tu Pizza</h1>
+    <form id="formulario">
+      <label for="nombre">Tu Nombre:</label>
+      <input type="text" id="nombre" required>
+      <label for="Fecha">Fecha:</label>
+      <input type="date" id="Fecha" required>
+      <label for="Pizza1">Pizza 1:</label>
+      <select id="Pizza1">
+        <option value="10">Mexicana ($10)</option>
+        <option value="12">Pepperoni ($12)</option>
+        <option value="11">Hawaiana ($11)</option>
+      </select>
+      <label for="Pizza2">Pizza 2:</label>
+      <select id="Pizza2">
+        <option value="10">Mexicana ($10)</option>
+        <option value="12">Pepperoni ($12)</option>
+        <option value="11">Hawaiana ($11)</option>
+      </select>
+      <label for="Pizza3">Pizza 3:</label>
+      <select id="Pizza3">
+        <option value="10">Mexicana ($10)</option>
+        <option value="12">Pepperoni ($12)</option>
+        <option value="11">Hawaiana ($11)</option>
+      </select>
+      <h3>Extras:</h3>
+      <input type="checkbox" id="queso1" value="2">
+      <label for="queso1">Queso extra ($2)</label>
+      <button type="button" id="calcular">Calcular Total</button>
+      
+    </form>
+  </div>
+  <div id="detalle-seccion" class="seccion contenedor">
+    <h2>Resumen del Pedido</h2>
+    <p id="detallePedido"></p>
+    <button type="button" id="continuarPago">Continuar</button>
+</div>
+
+  <div id="pago-seccion" class="seccion contenedor">
+    <h2>Pago</h2>
+    
+    <h3>Selecciona el método deL pagito:</h3>
+    <input type="radio" name="metodoPago" value="Efectivo" id="pagoEfectivo">
+    <label for="pagoEfectivo">Efectivo</label>
+
+    <input type="radio" name="metodoPago" value="Tarjeta" id="pagoTarjeta">
+    <label for="pagoTarjeta">Tarjeta</label>
+
+    <div id="pago-efectivo" class="seccion">
+        <label for="cantidadPagar">Cantidad a pagar:</label>
+        <input type="text" id="cantidadPagar" readonly>
+
+        <label for="cantidadRecibida">Cantidad recibida:</label>
+        <input type="number" id="cantidadRecibida">
+
+        <p><strong>Su cambio es:</strong> <span id="cambio"></span></p>
+        <button type="button" id="pagarEfectivo">Pagar</button>
+    </div>
+
+    <div id="pago-tarjeta" class="seccion">
+        <label for="nombreTitular">Nombre del Titular:</label>
+        <input type="text" id="nombreTitular">
+
+        <label for="numeroTarjeta">Número de Tarjeta:</label>
+        <input type="text" id="numeroTarjeta">
+
+        <label for="fechaVencimiento">Válida hasta:</label>
+        <input type="month" id="fechaVencimiento">
+
+        <label for="cvv">CVV:</label>
+        <input type="password" id="cvv" maxlength="3">
+
+        <button type="button" id="pagarTarjeta">Pagar</button>
+    </div>
+</div>
+
+<script>
+    document.getElementById("comenzar").addEventListener("click", function () {
+        document.getElementById("bienvenida").classList.remove("activa");
+        document.getElementById("formulario-seccion").classList.add("activa");
+    });
+
+    document.getElementById("calcular").addEventListener("click", function () {
+        const nombre = document.getElementById("nombre").value;
+        const Fecha = document.getElementById("Fecha").value;
+
+        const pizza1 = parseFloat(document.getElementById("Pizza1").value);
+        const pizza2 = parseFloat(document.getElementById("Pizza2").value);
+        const pizza3 = parseFloat(document.getElementById("Pizza3").value || 0);
+
+        const quesoExtra = document.getElementById("queso1").checked ? 2 : 0;
+
+        const total = pizza1 + pizza2 + pizza3 + quesoExtra;
+
+        document.getElementById("detalle-seccion").classList.add("activa");
+        document.getElementById("formulario-seccion").classList.remove("activa");
+        document.getElementById("detallePedido").innerHTML = `
+            <strong>Nombre:</strong> ${nombre}<br>
+            <strong>Fecha:</strong> ${Fecha}<br>
+            <strong>Total:</strong> $${total.toFixed(2)}
+        `;
+        document.getElementById("cantidadPagar").value = total.toFixed(2);
+    });
+
+    document.getElementById("continuarPago").addEventListener("click", function () {
+        document.getElementById("detalle-seccion").classList.remove("activa");
+        document.getElementById("pago-seccion").classList.add("activa");
+    });
+
+    document.querySelectorAll('input[name="metodoPago"]').forEach(radio => {
+        radio.addEventListener("change", function () {
+            document.getElementById("pago-efectivo").style.display = this.value === "Efectivo" ? "block" : "none";
+            document.getElementById("pago-tarjeta").style.display = this.value === "Tarjeta" ? "block" : "none";
+        });
+    });
+
+    document.getElementById("pagarEfectivo").addEventListener("click", function () {
+        const total = parseFloat(document.getElementById("cantidadPagar").value);
+        const recibido = parseFloat(document.getElementById("cantidadRecibida").value);
+
+        if (recibido >= total) {
+            const cambio = recibido - total;
+            document.getElementById("cambio").textContent = `$${cambio.toFixed(2)}`;
+            alert("Pago en efectivo realizado con éxito.");
+        } else {
+            alert("La cantidad recibida es insuficiente.");
+        }
+    });
+
+    document.getElementById("pagarTarjeta").addEventListener("click", function () {
+        alert("tu pagito fue exelente");
+    });
+</script>
+    
+</body>
+</html>
