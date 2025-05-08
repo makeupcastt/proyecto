@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Labiales - Melcast</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <h1>Melcast</h1>
+    <nav>
+      <ul>
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="labiales.html">Labiales</a></li>
+        <li><a href="gloss.html">Gloss</a></li>
+        <li><a href="sombras.html">Sombras</a></li>
+        <li><a href="bases.html">Bases</a></li>
+        <li><a href="rimels.html">Rímels</a></li>
+        <li><a href="barnices.html">Barnices</a></li>
+        <li><a href="rubor.html">Rubor</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <h2>Labiales</h2>
+
+    <input type="text" id="busqueda" onkeyup="buscarProducto()" placeholder="Buscar labial...">
+
+    <div class="producto">
+      <h3>Labial Rosa Intenso</h3>
+      <p>Precio: $120 MXN</p>
+      <button onclick="agregarAlCarrito('Labial Rosa Intenso', 120)">Comprar</button>
+    </div>
+
+    <div class="producto">
+      <h3>Labial Rojo Pasión</h3>
+      <p>Precio: $135 MXN</p>
+      <button onclick="agregarAlCarrito('Labial Rojo Pasión', 135)">Comprar</button>
+    </div>
+
+    <div class="producto">
+      <h3>Labial Nude Suave</h3>
+      <p>Precio: $110 MXN</p>
+      <button onclick="agregarAlCarrito('Labial Nude Suave', 110)">Comprar</button>
+    </div>
+
+    <br>
+    <button onclick="verCarrito()">Ver Carrito</button>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

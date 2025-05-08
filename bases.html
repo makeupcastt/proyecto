@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>BASES - Melcast</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <h1>Melcast</h1>
+    <nav>
+      <ul>
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="labiales.html">Labiales</a></li>
+        <li><a href="gloss.html">Gloss</a></li>
+        <li><a href="sombras.html">Sombras</a></li>
+        <li><a href="bases.html">Bases</a></li>
+        <li><a href="rimels.html">Rímels</a></li>
+        <li><a href="barnices.html">Barnices</a></li>
+        <li><a href="rubor.html">Rubor</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <h2>BESES</h2>
+
+    <input type="text" id="busqueda" onkeyup="buscarProducto()" placeholder="Buscar bases...">
+
+    <div class="producto">
+      <h3>base claro 01</h3>
+      <p>Precio: $230 MXN</p>
+      <button onclick="agregarAlCarrito('base claro 01', 230)">Comprar</button>
+    </div>
+
+    <div class="producto">
+      <h3>base claro 02</h3>
+      <p>Precio: $235 MXN</p>
+      <button onclick="agregarAlCarrito('base claro 02', 235)">Comprar</button>
+    </div>
+
+    <div class="producto">
+      <h3> base claro 03</h3>
+      <p>Precio: $240 MXN</p>
+      <button onclick="agregarAlCarrito('base claro 03', 240)">Comprar</button>
+    </div>
+
+    <div class="producto">
+        <h3> base medio 01</h3>
+        <p>Precio: $230 MXN</p>
+        <button onclick="agregarAlCarrito('base medio 01', 230)">Comprar</button>
+      </div>
+
+      <div class="producto">
+        <h3> base medio 02</h3>
+        <p>Precio: $235 MXN</p>
+        <button onclick="agregarAlCarrito('base medio 02', 235)">Comprar</button>
+      </div>
+
+      <div class="producto">
+        <h3> base medio 03</h3>
+        <p>Precio: $240 MXN</p>
+        <button onclick="agregarAlCarrito('base medio 03', 240)">Comprar</button>
+      </div>
+
+    <br>
+    <button onclick="verCarrito()">Ver Carrito</button>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>GLOSS - Melcast</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <h1>Melcast</h1>
+    <nav>
+      <ul>
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="labiales.html">Labiales</a></li>
+        <li><a href="gloss.html">Gloss</a></li>
+        <li><a href="sombras.html">Sombras</a></li>
+        <li><a href="bases.html">Bases</a></li>
+        <li><a href="rimels.html">Rímels</a></li>
+        <li><a href="barnices.html">Barnices</a></li>
+        <li><a href="rubor.html">Rubor</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <h2>GLOSS</h2>
+
+    <input type="text" id="busqueda" onkeyup="buscarProducto()" placeholder="Buscar gloss...">
+
+    <div class="producto">
+      <h3>Gloss Rosa </h3>
+      <p>Precio: $110 MXN</p>
+      <button onclick="agregarAlCarrito('Gloss Rosa', 110)">Comprar</button>
+    </div>
+
+    <div class="producto">
+      <h3>Gloss tansparente</h3>
+      <p>Precio: $110 MXN</p>
+      <button onclick="agregarAlCarrito('Gloss transparente', 110)">Comprar</button>
+    </div>
+
+    <br>
+    <button onclick="verCarrito()">Ver Carrito</button>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
