@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Labiales - Melcast</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="carrito.html">
+   <link rel="stylesheet" href="diseño.css">
+</head>
+<body>
+  <header>
+    <h1>Melcast</h1>
+    <nav>
+      <ul>
+        <li><a href="index.html">Inicio</a></li>
+          <li><a href="carrito.html">Ir al Carrito</a></li>
+        <li><a href="labiales.html">Labiales</a></li>
+        <li><a href="gloss.html">Gloss</a></li>
+        <li><a href="sombras.html">Sombras</a></li>
+        <li><a href="bases.html">Bases</a></li>
+        <li><a href="rimels.html">Rímels</a></li>
+        <li><a href="barnices.html">Barnices</a></li>
+        <li><a href="rubor.html">Rubor</a></li>
+      </ul>
+    </nav>
+  </header>
+
+ <div class="container">
+    <div class="bubble">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+    <div class="bubble">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+    <div class="bubble">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+    <div class="bubble">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+    <div class="bubble">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+ </div> <main>
+    <h2>Labiales</h2>
+
+    <input type="text" id="busqueda" onkeyup="buscarProducto()" placeholder="Buscar labial...">
+
+     <div class="producto">
+          <img src="L2.jpeg" alt="Descripción de la imagen" width="300">
+        <h3> labial rosa</h3>
+        <p>Precio: $230 MXN</p>
+        <button class="button"onclick="agregarAlCarrito('labial rosa', 230)">
+  comprar
+  <div class="hoverEffect">
+  </div>
+</div>
+</button>
+      
+       <div class="producto">
+            <img src="L5.jpeg" alt="Descripción de la imagen" width="300">
+        <h3> labial cafe</h3>
+        <p>Precio: $270 MXN</p>
+        <button class="button"onclick="agregarAlCarrito('labial cafe', 270)">
+  comprar
+  <div class="hoverEffect">
+</div>
+</div>
+</button>
+    
+       <div class="producto">
+            <img src="L1.jpeg" alt="Descripción de la imagen" width="300">
+        <h3> labial rojo</h3>
+        <p>Precio: $217 MXN</p>
+        <button class="button"onclick="agregarAlCarrito('labial rojo', 217)">
+  comprar
+  <div class="hoverEffect">
+</div>
+
+</div>
+</button>
+ <div class="producto">
+      <img src="L3.jpeg" alt="Descripción de la imagen" width="300">
+        <h3> labial morado</h3>
+        <p>Precio: $270 MXN</p>
+        <button class="button"onclick="agregarAlCarrito('labial cafe', 270)">
+  comprar
+  <div class="hoverEffect">
+</div>
+</div>
+</button>
+ <div class="producto">
+      <img src="L5.jpeg" alt="Descripción de la imagen" width="300">
+        <h3> labial azul</h3>
+        <p>Precio: $270 MXN</p>
+        <button class="button"onclick="agregarAlCarrito('labial cafe', 270)">
+  comprar
+  <div class="hoverEffect">
+</div>
+</div>
+</button>
+  <script>
+      function agregarAlCarrito() {
+            let producto = { nombre: "rosa intenso", precio: 120 };
+            let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+            carrito.push(producto);
+            localStorage.setItem("carrito", JSON.stringify(carrito));
+            alert("Producto agregado al carrito!");
+        }
+         function agregarAlCarrito() {
+            let producto = { nombre: "rojo pasion", precio: 135 };
+            let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+            carrito.push(producto);
+            localStorage.setItem("carrito", JSON.stringify(carrito));
+            alert("Producto agregado al carrito!");
+        }
+         function agregarAlCarrito() {
+            let producto = { nombre: "nude suave", precio: 110 };
+            let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+            carrito.push(producto);
+            localStorage.setItem("carrito", JSON.stringify(carrito));
+            alert("Producto agregado al carrito!");
+        }
+        </script>
+        <style>
+        body {
+            background-image: url('fondo.jpeg'); 
+            background-size: cover; 
+            background-position: center; 
+            background-repeat: no-repeat;
+        }
+        </style>
+    <br>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
