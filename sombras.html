@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>SOMBRAS - Melcast</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="carrito.html">
+      <link rel="stylesheet" href="diseño.css">
+
+</head>
+<body>
+  <header>
+    <h1>Melcast</h1>
+    <nav>
+      <ul>
+        <li><a href="index1.html">Inicio</a></li>
+          <li><a href="carrito.html">Ir al Carrito</a></li>
+        <li><a href="labiales.html">Labiales</a></li>
+        <li><a href="gloss.html">Gloss</a></li>
+        <li><a href="sombras.html">Sombras</a></li>
+        <li><a href="bases.html">Bases</a></li>
+        <li><a href="rimels.html">Rímels</a></li>
+        <li><a href="barnices.html">Barnices</a></li>
+        <li><a href="rubor.html">Rubor</a></li>
+      </ul>
+    </nav>
+  </header>
+
+ <div class="container">
+    <div class="bubble">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+    <div class="bubble">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+    <div class="bubble">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+    <div class="bubble">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+    <div class="bubble">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+ </div> <main>
+    <h2>SOMBRAS</h2>
+
+    <input type="text" id="busqueda" onkeyup="buscarProducto()" placeholder="Buscar sombras...">
+
+    <div class="producto">
+          <img src="S2.jpeg" alt="Descripción de la imagen" width="300">
+      <h3>sombra cafe</h3>
+      <p>Precio: $145 MXN</p>
+      <button class="button"onclick="agregarAlCarrito('sombra cafe', 145)">
+  comprar
+  <div class="hoverEffect">
+    <div></div>
+  </div>
+</button>
+
+    </div>
+
+    <div class="producto">
+          <img src="S4.jpeg" alt="Descripción de la imagen" width="300">
+      <h3>sombra nude</h3>
+      <p>Precio: $135 MXN</p>
+      <button class="button"onclick="agregarAlCarrito('sombra nude', 135)">
+  comprar
+  <div class="hoverEffect">
+    <div></div>
+  </div>
+</button>
+
+    </div>
+
+    <div class="producto">
+          <img src="S3.jpeg" alt="Descripción de la imagen" width="300">
+      <h3>sombra tricolor</h3>
+      <p>Precio: $178 MXN</p>
+      <button class="button" onclick="agregarAlCarrito('sombra tricolor', 178)">
+  comprar
+  <div class="hoverEffect">
+    <div></div>
+  </div>
+</button>
+ <div class="producto">
+      <img src="S6.jpeg" alt="Descripción de la imagen" width="300">
+      <h3>sombra negra</h3>
+      <p>Precio: $160 MXN</p>
+      <button class="button" onclick="agregarAlCarrito('sombra negra', 160)">
+  comprar
+  <div class="hoverEffect">
+    <div></div>
+  </div>
+</button>
+ <div class="producto">
+      <img src="S5.jpeg" alt="Descripción de la imagen" width="300">
+      <h3>sombra negra con brillos</h3>
+      <p>Precio: $222 MXN</p>
+      <button class="button" onclick="agregarAlCarrito('sombra negra con brillos', 222)">
+  comprar
+  <div class="hoverEffect">
+    <div></div>
+  </div>
+</button>
+ <div class="producto">
+      <img src="S1.jpeg" alt="Descripción de la imagen" width="300">
+      <h3>sombras brillosas</h3>
+      <p>Precio: $360 MXN</p>
+      <button class="button" onclick="agregarAlCarrito('sombras brillos', 360)">
+  comprar
+  <div class="hoverEffect">
+    <div></div>
+  </div>
+</button>
+
+    </div>
+
+    <script>
+       function agregarAlCarrito() {
+            let producto = { nombre: "sombra cafe", precio: 145 };
+            let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+            carrito.push(producto);
+            localStorage.setItem("carrito", JSON.stringify(carrito));
+            alert("Producto agregado al carrito!");
+        }
+         function agregarAlCarrito() {
+            let producto = { nombre: "sombra nude", precio: 135};
+            let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+            carrito.push(producto);
+            localStorage.setItem("carrito", JSON.stringify(carrito));
+            alert("Producto agregado al carrito!");
+        }
+         function agregarAlCarrito() {
+            let producto = { nombre: "sombra tricolor", precio: 178};
+            let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+            carrito.push(producto);
+            localStorage.setItem("carrito", JSON.stringify(carrito));
+            alert("Producto agregado al carrito!");
+        }
+    </script>
+     <style>
+        body {
+            background-image: url('fondo.jpeg'); 
+            background-size: cover; 
+            background-position: center; 
+            background-repeat: no-repeat;
+        }
+        </style>
+    <br>
+   
+  </main>
+
+  <script src="script1.js"></script>
+</body>
+</html>
