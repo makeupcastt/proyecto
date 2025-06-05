@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Melcast - Tienda de maquillaje y cosméticos exclusivos. Labiales, sombras, barnices, rubor y más.">
+  <title>Melcast - Tienda de Maquillaje</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-image: url('fondo.jpeg');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      overflow-x: hidden;
+    }
+
+    header {
+      background-color: rgb(34, 5, 20);
+      padding: 10px;
+      text-align: center;
+      color: white;
+    }
+
+    nav ul {
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 15px;
+    }
+
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      transition: color 0.3s ease;
+    }
+
+    nav ul li a:hover {
+      color: #ffeb3b;
+    }
+
+    main {
+      padding: 30px 20px;
+      text-align: center;
+      color: #fff;
+      text-shadow: 1px 1px 5px rgba(0,0,0,0.7);
+      position: relative;
+      z-index: 1;
+    }
+
+    h2 {
+      margin-bottom: 10px;
+      font-size: 2.5rem;
+    }
+
+    p {
+      font-size: 1.2rem;
+    }
+
+    .bubble {
+      position: absolute;
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      box-shadow: inset 0 0 25px rgba(255, 255, 255, 0.25);
+      animation: floatBubble 10s ease-in-out infinite;
+      opacity: 0.4;
+      z-index: 0;
+    }
+
+    .bubble:nth-child(1) { top: 80px; left: 20px; animation-delay: -2s; }
+    .bubble:nth-child(2) { top: 250px; right: 30px; animation-delay: -4s; }
+    .bubble:nth-child(3) { top: 500px; left: 150px; animation-delay: -3s; }
+    .bubble:nth-child(4) { top: 600px; right: 100px; animation-delay: -5s; }
+    .bubble:nth-child(5) { top: 750px; left: 50px; animation-delay: -1s; }
+
+    @keyframes floatBubble {
+      0%, 100% { transform: translateY(0); opacity: 0.6; }
+      50% { transform: translateY(-30px); opacity: 0.8; }
+    }
+
+    .cards-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 20px;
+      margin-top: 40px;
+      padding: 0 20px;
+    }
+
+    .card {
+      background: rgba(255,255,255,0.1);
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+      transition: transform 0.3s ease;
+      backdrop-filter: blur(5px);
+    }
+
+    .card:hover {
+      transform: translateY(-10px);
+    }
+
+    .card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .card h3 {
+      margin: 10px 0;
+      color: #fff;
+    }
+
+    .card p {
+      color: #eee;
+      padding: 0 10px 10px;
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <h1>Melcast</h1>
+    <nav>
+      <ul>
+        <li><a href="contactanos.html">Contáctanos</a></li>
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="carrito.html">Carrito</a></li>
+        <li><a href="labiales.html">Labiales</a></li>
+        <li><a href="gloss.html">Gloss</a></li>
+        <li><a href="sombras.html">Sombras</a></li>
+        <li><a href="bases.html">Bases</a></li>
+        <li><a href="rimels.html">Rímels</a></li>
+        <li><a href="barnices.html">Barnices</a></li>
+        <li><a href="rubor.html">Rubor</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <h2>Bienvenid@ a Melcast</h2>
+    <p>Tu tienda favorita de maquillaje y cosméticos exclusivos</p>
+
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+
+    <h2 style="margin-top:60px;">Productos Destacados</h2>
+
+    <div class="cards-container">
+      <div class="card">
+        <img src="L1.jpeg" alt="Labial Glam">
+        <h3>Labial Glam</h3>
+        <p>Colores intensos y textura aterciopelada. ¡Consíguelo ahora!</p>
+      </div>
+      <div class="card">
+        <img src="S1.jpeg" alt="Paleta de Sombras">
+        <h3>Paleta de Sombras</h3>
+        <p>15 tonos vibrantes para cada ocasión. Alta pigmentación.</p>
+      </div>
+      <div class="card">
+        <img src="R1.jpeg" alt="Rímel Ultra Volume">
+        <h3>Rímel Ultra Volume</h3>
+        <p>Pestañas largas y definidas, sin grumos ni manchas.</p>
+      </div>
+      <div class="card">
+        <img src="B1.jpeg" alt="Barniz Neon">
+        <h3>Barniz Neon</h3>
+        <p>Colores eléctricos de larga duración. ¡Atrévete a brillar!</p>
+      </div>
+    </div>
+  </main>
+</body>
+</html>
