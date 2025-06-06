@@ -3,7 +3,6 @@
 <head>
   <meta charset="UTF-8">
   <title>BASES - Melcast</title>
-  <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="diseño.css">
 </head>
 <body>
@@ -12,7 +11,6 @@
     <nav>
       <ul>
         <li><a href="index.html">Inicio</a></li>
-        <li><a href="carrito.html">Ir al Carrito</a></li>
         <li><a href="labiales.html">Labiales</a></li>
         <li><a href="gloss.html">Gloss</a></li>
         <li><a href="sombras.html">Sombras</a></li>
@@ -20,117 +18,79 @@
         <li><a href="rimels.html">Rímels</a></li>
         <li><a href="barnices.html">Barnices</a></li>
         <li><a href="rubor.html">Rubor</a></li>
+        <li><a href="carrito.html">Carrito</a></li>
+        <li><a href="contactanos.html">Contáctanos</a></li>
       </ul>
     </nav>
   </header>
 
-  <div class="container">
-    <!-- burbujas decorativas -->
-    <div class="bubble"><span></span><span></span><span></span><span></span><span></span></div>
-    <div class="bubble"><span></span><span></span><span></span><span></span><span></span></div>
-    <div class="bubble"><span></span><span></span><span></span><span></span><span></span></div>
-    <div class="bubble"><span></span><span></span><span></span><span></span><span></span></div>
-    <div class="bubble"><span></span><span></span><span></span><span></span><span></span></div>
-  </div>
-
   <main>
     <h2>BASES</h2>
-
     <input type="text" id="busqueda" onkeyup="buscarProducto()" placeholder="Buscar bases...">
 
-    <form onsubmit="agregarAlCarrito('base claro 02', 235); return false;">
+    <div class="productos-container">
       <div class="producto">
-        <img src="B2.jpeg" alt="base claro 02" width="300">
+        <img src="B2.jpeg" alt="base claro 02">
         <h3>base claro 02</h3>
         <p>Precio: $235 MXN</p>
-        <button class="button" type="submit">
-          comprar
-          <div class="hoverEffect"><div></div></div>
-        </button>
+        <button class="button" onclick="agregarAlCarrito('base claro 02', 235)">Comprar</button>
       </div>
-    </form>
 
-    <form onsubmit="agregarAlCarrito('base claro 03', 240); return false;">
       <div class="producto">
-        <img src="B5.jpeg" alt="base claro 03" width="300">
+        <img src="B5.jpeg" alt="base claro 03">
         <h3>base claro 03</h3>
         <p>Precio: $240 MXN</p>
-        <button class="button" type="submit">
-          comprar
-          <div class="hoverEffect"><div></div></div>
-        </button>
+        <button class="button" onclick="agregarAlCarrito('base claro 03', 240)">Comprar</button>
       </div>
-    </form>
 
-    <form onsubmit="agregarAlCarrito('base medio 01', 230); return false;">
       <div class="producto">
-        <img src="B1.jpeg" alt="base medio 01" width="300">
+        <img src="B1.jpeg" alt="base medio 01">
         <h3>base medio 01</h3>
         <p>Precio: $230 MXN</p>
-        <button class="button" type="submit">
-          comprar
-          <div class="hoverEffect"><div></div></div>
-        </button>
+        <button class="button" onclick="agregarAlCarrito('base medio 01', 230)">Comprar</button>
       </div>
-    </form>
 
-    <form onsubmit="agregarAlCarrito('base medio 04', 245); return false;">
       <div class="producto">
-        <img src="B3.jpeg" alt="base medio 04" width="300">
+        <img src="B3.jpeg" alt="base medio 04">
         <h3>base medio 04</h3>
         <p>Precio: $245 MXN</p>
-        <button class="button" type="submit">
-          comprar
-          <div class="hoverEffect"><div></div></div>
-        </button>
+        <button class="button" onclick="agregarAlCarrito('base medio 04', 245)">Comprar</button>
       </div>
-    </form>
 
-    <form onsubmit="agregarAlCarrito('base obscura 05', 235); return false;">
       <div class="producto">
-        <img src="B4.jpeg" alt="base obscura 05" width="300">
+        <img src="B4.jpeg" alt="base obscura 05">
         <h3>base obscura 05</h3>
         <p>Precio: $235 MXN</p>
-        <button class="button" type="submit">
-          comprar
-          <div class="hoverEffect"><div></div></div>
-        </button>
+        <button class="button" onclick="agregarAlCarrito('base obscura 05', 235)">Comprar</button>
       </div>
-    </form>
 
-    <form onsubmit="agregarAlCarrito('base obscura 06', 238); return false;">
       <div class="producto">
-        <img src="B6.jpeg" alt="base obscura 06" width="300">
+        <img src="B6.jpeg" alt="base obscura 06">
         <h3>base obscura 06</h3>
         <p>Precio: $238 MXN</p>
-        <button class="button" type="submit">
-          comprar
-          <div class="hoverEffect"><div></div></div>
-        </button>
+        <button class="button" onclick="agregarAlCarrito('base obscura 06', 238)">Comprar</button>
       </div>
-    </form>
-
+    </div>
   </main>
 
   <script>
     function agregarAlCarrito(nombre, precio) {
-      let producto = { nombre: nombre, precio: precio };
+      const producto = { nombre, precio };
       let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
       carrito.push(producto);
       localStorage.setItem("carrito", JSON.stringify(carrito));
-      alert("Producto agregado al carrito!");
+      alert(`"${nombre}" fue agregado al carrito.`);
+    }
+
+    function buscarProducto() {
+      const input = document.getElementById("busqueda").value.toLowerCase();
+      const productos = document.querySelectorAll(".producto");
+
+      productos.forEach(producto => {
+        const nombre = producto.querySelector("h3").textContent.toLowerCase();
+        producto.style.display = nombre.includes(input) ? "inline-block" : "none";
+      });
     }
   </script>
-
-  <style>
-    body {
-      background-image: url('fondo.jpeg'); 
-      background-size: cover; 
-      background-position: center; 
-      background-repeat: no-repeat;
-    }
-  </style>
-
-  <script src="script1.js"></script>
 </body>
 </html>

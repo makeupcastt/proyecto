@@ -3,9 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <title>BARNICES - Melcast</title>
-  <link rel="stylesheet" href="styles.css">
-  <link rel="stylesheet" href="carrito.html">
-   <link rel="stylesheet" href="diseño.css">
+  <link rel="stylesheet" href="diseño.css">
 </head>
 <body>
   <header>
@@ -13,7 +11,6 @@
     <nav>
       <ul>
         <li><a href="index.html">Inicio</a></li>
-        <li><a href="carrito.html">Ir al Carrito</a></li>
         <li><a href="labiales.html">Labiales</a></li>
         <li><a href="gloss.html">Gloss</a></li>
         <li><a href="sombras.html">Sombras</a></li>
@@ -21,185 +18,101 @@
         <li><a href="rimels.html">Rímels</a></li>
         <li><a href="barnices.html">Barnices</a></li>
         <li><a href="rubor.html">Rubor</a></li>
+        <li><a href="carrito.html">Carrito</a></li>
+        <li><a href="contactanos.html">Contáctanos</a></li>
       </ul>
     </nav>
   </header>
 
-    <main>
+  <main>
     <h2>BARNICES</h2>
-
     <input type="text" id="busqueda" onkeyup="buscarProducto()" placeholder="Buscar barnices...">
-    
 
-    <div class="producto">
-      <div class="container">
-        <div class="bubble"><span></span><span></span><span></span><span></span><span></span></div>
-        <div class="bubble"><span></span><span></span><span></span><span></span><span></span></div>
-        <div class="bubble"><span></span><span></span><span></span><span></span><span></span></div>
-        <div class="bubble"><span></span><span></span><span></span><span></span><span></span></div>
-        <div class="bubble"><span></span><span></span><span></span><span></span><span></span></div>
-    </div>
-    
-      <h3>verde</h3>
-      <p>Precio: $67 MXN</p>      
-      <button class="button"onclick="agregarAlCarrito('verde',67 )">
-comprar  <div class="hoverEffect"><div class="card">
-    <div class="card-img"><div class="img"></div></div>
-    <div class="card-title">Product title</div>
-    <div class="card-subtitle">Product description. Lorem ipsum dolor sit amet, consectetur adipisicing elit.</div>
-    <hr class="card-divider">
-    <div class="card-footer">
-        <div class="card-price"><span>$</span> 123.45</div>
-    </div>
-</div>
-    <div></div>
-  </div>
-</button>
-
-
-
-    </div>
-
-    <div class="producto">
-          <img src="V2.jpeg" alt="Descripción de la imagen" width="300">
-
-      <h3>morado</h3>
-      <p>Precio: $67 MXN</p>
-      <button class="button"onclick="agregarAlCarrito('morado', 67)">
-comprar  <div class="hoverEffect">
-    <div></div>
-  </div>
-</button>
-
-    </div>
-
-    <div class="producto">
-          <img src="V8.jpeg" alt="Descripción de la imagen" width="300">
-      <h3> Nude </h3>
-      <p>Precio: $176 MXN</p>
-      <button class="button" onclick="agregarAlCarrito(' Nude', 176)">
-comprar  <div class="hoverEffect">
-    <div></div>
-  </div>
-</button>
-
-    </div>
-
-    <div class="producto">
-          <img src="V0.jpeg" alt="Descripción de la imagen" width="300">
-        <h3> ojo de gato </h3>
-        <p>Precio: $215 MXN</p>
-        <button class="button"onclick="agregarAlCarrito(' ojo de gato', 215)">
-comprar  <div class="hoverEffect">
-    <div></div>
-  </div>
-</button>
- <div class="producto">
-      <img src="V1.jpeg" alt="Descripción de la imagen" width="300">
-      <h3>rosa</h3>
-      <p>Precio: $70 MXN</p>
-      <button class="button"onclick="agregarAlCarrito('rosa', 70)">
-comprar  <div class="hoverEffect">
-    <div></div>
-  </div>
-</button>
-
- <div class="producto">
-      <img src="V7.jpeg" alt="Descripción de la imagen" width="300">
-      <h3>rojo</h3>
-      <p>Precio: $75 MXN</p>
-      <button class="button"onclick="agregarAlCarrito('rojo', 75)">
-comprar  <div class="hoverEffect">
-    <div></div>
-  </div>
-</button>
-
- <div class="producto">
-      <img src="V9.jpeg" alt="Descripción de la imagen" width="300">
-      <h3>cafe</h3>
-      <p>Precio: $67 MXN</p>
-      <button class="button"onclick="agregarAlCarrito('cafe', 67)">
-comprar  <div class="hoverEffect">
-    <div></div>
-  </div>
-</button>
-
- <div class="producto">
-      <img src="V5.jpeg" alt="Descripción de la imagen" width="300">
-      <h3>blanco</h3>
-      <p>Precio: $110 MXN</p>
-      <button class="button"onclick="agregarAlCarrito('blanco', 110)">
-comprar  <div class="hoverEffect">
-    <div></div>
-  </div>
-</button>
-
- <div class="producto">
-      <img src="V6.jpeg" alt="Descripción de la imagen" width="300">
-      <h3>naranja</h3>
-      <p>Precio: $67 MXN</p>
-      <button class="button"onclick="agregarAlCarrito('naramja', 67)">
-comprar  <div class="hoverEffect">
-    <div></div>
-  </div>
-</button>
- <div class="producto">
-      <img src="V4.jpeg" alt="Descripción de la imagen" width="300">
-      <h3>negro</h3>
-      <p>Precio: $115 MXN</p>
-      <button class="button"onclick="agregarAlCarrito('negro', 67115)">
-comprar  <div class="hoverEffect">
-    <div></div>
-  </div>
-</button>
-
-
-
+    <div class="productos-container">
+      <!-- Producto plantilla -->
+      <div class="producto">
+        <img src="V2.jpeg" alt="Barniz morado">
+        <h3>Morado</h3>
+        <p>Precio: $67 MXN</p>
+        <button class="button" onclick="agregarAlCarrito('Morado', 67)">Comprar</button>
       </div>
-        <script>
-      function agregarAlCarrito() {
-            let producto = { nombre: "verde", precio: 67 };
-            let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
-            carrito.push(producto);
-            localStorage.setItem("carrito", JSON.stringify(carrito));
-            alert("Producto agregado al carrito!");
-        }
-        function agregarAlCarrito() {
-            let producto = { nombre: "morado", precio: 67 };
-            let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
-            carrito.push(producto);
-            localStorage.setItem("carrito", JSON.stringify(carrito));
-            alert("Producto agregado al carrito!");
-        }
-        function agregarAlCarrito() {
-            let producto = { nombre: "nude", precio: 176 };
-            let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
-            carrito.push(producto);
-            localStorage.setItem("carrito", JSON.stringify(carrito));
-            alert("Producto agregado al carrito!");
-        }
-        function agregarAlCarrito() {
-            let producto = { nombre: "ojo de gato", precio: 215 };
-            let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
-            carrito.push(producto);
-            localStorage.setItem("carrito", JSON.stringify(carrito));
-            alert("Producto agregado al carrito!");
-        }
 
-  
-    </script>
-    <style>
-        body {
-            background-image: url('fondo.jpeg'); 
-            background-size: cover; 
-            background-position: center;
-            background-repeat: no-repeat; 
-        }
-    </style>
+      <div class="producto">
+        <img src="V8.jpeg" alt="Barniz nude">
+        <h3>Nude</h3>
+        <p>Precio: $176 MXN</p>
+        <button class="button" onclick="agregarAlCarrito('Nude', 176)">Comprar</button>
+      </div>
 
+      <div class="producto">
+        <img src="V0.jpeg" alt="Barniz ojo de gato">
+        <h3>Ojo de gato</h3>
+        <p>Precio: $215 MXN</p>
+        <button class="button" onclick="agregarAlCarrito('Ojo de gato', 215)">Comprar</button>
+      </div>
 
+      <div class="producto">
+        <img src="V1.jpeg" alt="Barniz rosa">
+        <h3>Rosa</h3>
+        <p>Precio: $70 MXN</p>
+        <button class="button" onclick="agregarAlCarrito('Rosa', 70)">Comprar</button>
+      </div>
+
+      <div class="producto">
+        <img src="V7.jpeg" alt="Barniz rojo">
+        <h3>Rojo</h3>
+        <p>Precio: $75 MXN</p>
+        <button class="button" onclick="agregarAlCarrito('Rojo', 75)">Comprar</button>
+      </div>
+
+      <div class="producto">
+        <img src="V9.jpeg" alt="Barniz café">
+        <h3>Café</h3>
+        <p>Precio: $67 MXN</p>
+        <button class="button" onclick="agregarAlCarrito('Café', 67)">Comprar</button>
+      </div>
+
+      <div class="producto">
+        <img src="V5.jpeg" alt="Barniz blanco">
+        <h3>Blanco</h3>
+        <p>Precio: $110 MXN</p>
+        <button class="button" onclick="agregarAlCarrito('Blanco', 110)">Comprar</button>
+      </div>
+
+      <div class="producto">
+        <img src="V6.jpeg" alt="Barniz naranja">
+        <h3>Naranja</h3>
+        <p>Precio: $67 MXN</p>
+        <button class="button" onclick="agregarAlCarrito('Naranja', 67)">Comprar</button>
+      </div>
+
+      <div class="producto">
+        <img src="V4.jpeg" alt="Barniz negro">
+        <h3>Negro</h3>
+        <p>Precio: $115 MXN</p>
+        <button class="button" onclick="agregarAlCarrito('Negro', 115)">Comprar</button>
+      </div>
+    </div>
   </main>
 
-  <script src="styles1.css"></script>
+  <script>
+    function agregarAlCarrito(nombre, precio) {
+      const producto = { nombre, precio };
+      let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+      carrito.push(producto);
+      localStorage.setItem("carrito", JSON.stringify(carrito));
+      alert(`"${nombre}" fue agregado al carrito.`);
+    }
+
+    function buscarProducto() {
+      const input = document.getElementById("busqueda").value.toLowerCase();
+      const productos = document.querySelectorAll(".producto");
+
+      productos.forEach(producto => {
+        const nombre = producto.querySelector("h3").textContent.toLowerCase();
+        producto.style.display = nombre.includes(input) ? "inline-block" : "none";
+      });
+    }
+  </script>
 </body>
 </html>

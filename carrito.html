@@ -1,140 +1,17 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Carrito</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="diseño.css">
-      <link rel="stylesheet" href="styles.css">
- <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background-image: url('fondo.jpeg');
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
-      overflow-x: hidden;
-    }
-    header {
-      background-color: rgb(34, 5, 20);
-      padding: 10px;
-      text-align: center;
-      color: writhe;
-    }
-
-    nav ul {
-      list-style-type: none;
-      padding: 0;
-      margin: 0;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 15px;
-    }
-
-    nav ul li a {
-      color: wrthe;
-      text-decoration: none;
-      font-weight: bold;
-     
-    }
-
-    nav ul li a:hover {
-    ;
-    }
-
-    main {
-      padding: 30px 20px;
-      text-align: center;
-      color: black;
-      text-shadow: 1px 1px 5px rgba(0,0,0,0.7);
-      position: relative;
-      z-index: 1;
-    }
-
-    h2 {
-      margin-bottom: 10px;
-      font-size: 2.5rem;
-    }
-
-    p {
-      font-size: 1.2rem;
-    }
-
-    .bubble {
-      position: absolute;
-      width: 150px;
-      height: 150px;
-      border-radius: 50%;
-      box-shadow: inset 0 0 25px rgba(255, 255, 255, 0.25);
-      animation: floatBubble 10s ease-in-out infinite;
-      opacity: 0.4;
-      z-index: 0;
-    }
-
-    .bubble:nth-child(1) { top: 80px; left: 20px; animation-delay: -2s; }
-    .bubble:nth-child(2) { top: 250px; right: 30px; animation-delay: -4s; }
-    .bubble:nth-child(3) { top: 500px; left: 150px; animation-delay: -3s; }
-    .bubble:nth-child(4) { top: 600px; right: 100px; animation-delay: -5s; }
-    .bubble:nth-child(5) { top: 750px; left: 50px; animation-delay: -1s; }
-
-    @keyframes floatBubble {
-      0%, 100% { transform: translateY(0); opacity: 0.6; }
-      50% { transform: translateY(-30px); opacity: 0.8; }
-    }
-
-    .cards-container {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-      gap: 20px;
-      margin-top: 40px;
-      padding: 0 20px;
-    }
-
-    .card {
-      background: rgba(255,255,255,0.1);
-      border-radius: 15px;
-      overflow: hidden;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-      transition: transform 0.3s ease;
-      backdrop-filter: blur(5px);
-    }
-
-    .card:hover {
-      transform: translateY(-10px);
-    }
-
-    .card img {
-      width: 100%;
-      height: 200px;
-      object-fit: cover;
-      display: block;
-    }
-
-    .card h3 {
-      margin: 10px 0;
-;
-    }
-
-    .card p {
-      ;
-      padding: 0 10px 10px;
-      font-size: 0.9rem;
-    }
-  </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Carrito - Melcast</title>
+  <link rel="stylesheet" href="diseño.css" />
 </head>
-
 <body>
   <header>
     <h1>Melcast</h1>
     <nav>
       <ul>
-        <li><a href="contactanos.html">Contáctanos</a></li>
         <li><a href="index.html">Inicio</a></li>
-        <li><a href="carrito.html">Carrito</a></li>
         <li><a href="labiales.html">Labiales</a></li>
         <li><a href="gloss.html">Gloss</a></li>
         <li><a href="sombras.html">Sombras</a></li>
@@ -142,76 +19,55 @@
         <li><a href="rimels.html">Rímels</a></li>
         <li><a href="barnices.html">Barnices</a></li>
         <li><a href="rubor.html">Rubor</a></li>
+        <li><a href="carrito.html">Carrito</a></li>
+        <li><a href="contactanos.html">Contáctanos</a></li>
       </ul>
-</head>
-<body>
+    </nav>
+  </header>
 
+  <main>
     <section class="container">
-        <h1>Carrito de Compras</h1>
+      <h2>Carrito de Compras</h2>
 
-        <ul id="lista-carrito"></ul>
+      <ul id="lista-carrito"></ul>
 
-        <h2>Total: $<span id="total-precio">0</span></h2> <!-- Mostrar el total -->
+      <h2>Total: $<span id="total-precio">0.00</span></h2>
 
-        <a href="pago.html">
-            <button class="button">
-                Ir al Pago
-                <div class="hoverEffect">
-                    <div></div>
-                </div>
-            </button>
-        </a>
+      <a href="pago.html">
+        <button class="button">Ir al Pago</button>
+      </a>
     </section>
-   
+  </main>
 
-    <script>
-       
-        document.addEventListener("DOMContentLoaded", function () {
-            let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
-            let listaCarrito = document.getElementById("lista-carrito");
-            let totalPrecio = document.getElementById("total-precio");
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+      let listaCarrito = document.getElementById("lista-carrito");
+      let totalPrecio = document.getElementById("total-precio");
 
-            let total = 0;
+      let total = 0;
 
-            carrito.forEach((producto, index) => {
-                let item = document.createElement("li");
-                item.innerHTML = `${producto.nombre} - $${producto.precio} 
-                    <button class="learn-more" data-index="${index}">Eliminar</button>`;
-                listaCarrito.appendChild(item);
+      carrito.forEach((producto, index) => {
+        let item = document.createElement("li");
+        item.innerHTML = `
+          ${producto.nombre} - $${parseFloat(producto.precio).toFixed(2)} 
+          <button class="button eliminar" data-index="${index}">Eliminar</button>
+        `;
+        listaCarrito.appendChild(item);
+        total += parseFloat(producto.precio);
+      });
 
-                total += parseFloat(producto.precio);
-            });
+      totalPrecio.textContent = total.toFixed(2);
 
-            totalPrecio.textContent = total.toFixed(2); 
-
-            document.addEventListener("click", function (event) {
-                if (event.target.classList.contains("learn-more")) {
-                    let index = event.target.dataset.index;
-                    carrito.splice(index, 1);
-                    localStorage.setItem("carrito", JSON.stringify(carrito));
-                    location.reload();
-                }
-            });
-        });
-
-    </script>
-<div class="container">
-        <div class="bubble"><span></span><span></span><span></span><span></span><span></span></div>
-        <div class="bubble"><span></span><span></span><span></span><span></span><span></span></div>
-        <div class="bubble"><span></span><span></span><span></span><span></span><span></span></div>
-        <div class="bubble"><span></span><span></span><span></span><span></span><span></span></div>
-        <div class="bubble"><span></span><span></span><span></span><span></span><span></span></div>
-    </div>
-    <style>
-        body {
-            background-image: url('fondo.jpeg'); 
-            background-size: cover; 
-            background-position: center; 
-            background-repeat: no-repeat;
+      document.addEventListener("click", function (event) {
+        if (event.target.classList.contains("eliminar")) {
+          let index = event.target.dataset.index;
+          carrito.splice(index, 1);
+          localStorage.setItem("carrito", JSON.stringify(carrito));
+          location.reload();
         }
-    </style>
-
-    <script src="script.js"></script>
-
+      });
+    });
+  </script>
 </body>
 </html>
