@@ -10,32 +10,69 @@
   <link rel="stylesheet" href="styles.css" />
   <link rel="stylesheet" href="styles1.css" />
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-    <link rel="stylesheet" href="styles.css">
-  
+</head>
+
+<body>
   <div class="container">
     <form id="payment-form">
       <div class="row">
         <div class="column">
           <h3 class="title">Billing Address</h3>
-          <div class="input-box"><span>Full Name:</span><input type="text" id="name" placeholder="Jacob Aiden" /></div>
-          <div class="input-box"><span>Email:</span><input type="email" id="email" placeholder="example@domain.com" /></div>
-          <div class="input-box"><span>Address:</span><input type="text" id="address" placeholder="Room - Street - Locality" /></div>
-          <div class="input-box"><span>City:</span><input type="text" id="city" placeholder="Berlin" /></div>
+          <div class="input-box">
+            <span>Nombre:</span>
+            <input type="text" id="name" placeholder="Melany Castañeda" required />
+          </div>
+          <div class="input-box">
+            <span>Correo:</span>
+            <input type="email" id="email" placeholder="example@domain.com" required />
+          </div>
+          <div class="input-box">
+            <span>Dirección:</span>
+            <input type="text" id="address" placeholder="Room - Street - Locality" required />
+          </div>
+          <div class="input-box">
+            <span>Ciudad:</span>
+            <input type="text" id="city" placeholder="Ciudad" required />
+          </div>
           <div class="flex">
-            <div class="input-box"><span>State:</span><input type="text" id="state" placeholder="Germany" /></div>
-            <div class="input-box"><span>ZIP Code:</span><input type="text" id="zip" placeholder="123456" pattern="\d{5,6}" /></div>
+            <div class="input-box">
+              <span>Estado:</span>
+              <input type="text" id="state" placeholder="Estado" required />
+            </div>
+            <div class="input-box">
+              <span>Código postal:</span>
+              <input type="text" id="zip" placeholder="12345" pattern="\\d{5,6}" required />
+            </div>
           </div>
         </div>
 
         <div class="column">
           <h3 class="title">Payment</h3>
-          <div class="input-box"><span>Card Accepted:</span><input type="text" id="card-type" placeholder="Visa, MasterCard" /></div>
-          <div class="input-box"><span>Name on Card:</span><input type="text" id="card-name" placeholder="Mr. Melany Castt" /></div>
-          <div class="input-box"><span>Credit Card Number:</span><input type="text" id="card-number" placeholder="1111222233334444" pattern="\d{16}" maxlength="16" /></div>
-          <div class="input-box"><span>Expiration Month:</span><input type="text" id="exp-month" placeholder="August" /></div>
+          <div class="input-box">
+            <span>Tipo de tarjeta:</span>
+            <input type="text" id="card-type" placeholder="Visa, MasterCard" required />
+          </div>
+          <div class="input-box">
+            <span>Nombre en la tarjeta:</span>
+            <input type="text" id="card-name" placeholder="Mr. Melany Castt" required />
+          </div>
+          <div class="input-box">
+            <span>Número de tarjeta:</span>
+            <input type="text" id="card-number" placeholder="1234567812345678" pattern="\\d{16}" maxlength="16" required />
+          </div>
+          <div class="input-box">
+            <span>Mes de expiración:</span>
+            <input type="text" id="exp-month" placeholder="MM" pattern="\\d{2}" maxlength="2" required />
+          </div>
           <div class="flex">
-            <div class="input-box"><span>Expiration Year:</span><input type="text" id="exp-year" placeholder="2025" pattern="\d{4}" maxlength="4" /></div>
-            <div class="input-box"><span>CVV:</span><input type="text" id="cvv" placeholder="123" pattern="\d{3,4}" maxlength="4" /></div>
+            <div class="input-box">
+              <span>Año de expiración:</span>
+              <input type="text" id="exp-year" placeholder="2025" pattern="\\d{4}" maxlength="4" required />
+            </div>
+            <div class="input-box">
+              <span>CVV:</span>
+              <input type="text" id="cvv" placeholder="123" pattern="\\d{3,4}" maxlength="4" required />
+            </div>
           </div>
         </div>
       </div>
@@ -53,14 +90,13 @@
     document.getElementById("pay-button").addEventListener("click", function () {
       const inputs = document.querySelectorAll("#payment-form input");
       const message = document.getElementById("payment-message");
-
       let allValid = true;
 
       inputs.forEach(input => {
         if (input.value.trim() === "") {
           allValid = false;
         } else if (input.pattern) {
-          const regex = new RegExp(input.pattern);
+          const regex = new RegExp(input.pattern.replace(/\\\\/g, "\\"));
           if (!regex.test(input.value)) {
             allValid = false;
           }
@@ -68,18 +104,16 @@
       });
 
       if (!allValid) {
-        message.textContent = "Verifique sus datos.";
+        message.textContent = "⚠️ Verifique que todos los campos estén correctamente llenos.";
         message.style.color = "red";
         return;
       }
 
-      message.textContent = "Excelente, su pago fue con éxito.";
+      message.textContent = "✅ ¡Pago realizado con éxito!";
       message.style.color = "green";
 
-      // PDF generation
-      const {
-        jsPDF
-      } = window.jspdf;
+      // Generar PDF
+      const { jsPDF } = window.jspdf;
       const doc = new jsPDF();
 
       doc.text("Comprobante de Pago", 20, 20);
@@ -91,7 +125,7 @@
       doc.text(`Código Postal: ${document.getElementById("zip").value}`, 20, 80);
       doc.text(`Tipo de tarjeta: ${document.getElementById("card-type").value}`, 20, 90);
       doc.text(`Nombre en tarjeta: ${document.getElementById("card-name").value}`, 20, 100);
-      doc.text(`Fecha expiración: ${document.getElementById("exp-month").value} / ${document.getElementById("exp-year").value}`, 20, 110);
+      doc.text(`Expiración: ${document.getElementById("exp-month").value}/${document.getElementById("exp-year").value}`, 20, 110);
       doc.text(`Fecha: ${new Date().toLocaleDateString()}`, 20, 120);
 
       doc.save("comprobante_pago.pdf");
