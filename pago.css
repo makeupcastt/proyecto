@@ -1,247 +1,136 @@
-
 body {
+    margin: 0;
     font-family: Arial, sans-serif;
-    background-color: #f5f5f5;
+    background-image: url('fondo.jpeg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    overflow-x: hidden;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background: rgba(0, 0, 0, 0.5) url('gr.jpeg') no-repeat center/cover;
 }
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background-image: url('fondo.jpeg');
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
-      overflow-x: hidden;
-    }
-
-
 
 .container {
-    background: #ffffff;
-    padding: 20px;
+    background: #ffffffee;
+    padding: 30px;
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    width: 400px;
-    text-align: center;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    width: 900px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-h3 {
-    color: #333;
+h3, span, label, p {
+    color: hotpink; 
+}
+
+.row {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
+    width: 100%;
+}
+
+.column {
+    width: 48%;
 }
 
 .input-box {
     margin-bottom: 15px;
 }
 
+.input-box span {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
 input {
     width: 100%;
-    padding: 8px;
+    padding: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
 }
 
-button {
-    background: #007BFF;
+button,
+.button {
+    background: #ff69b4; /* botón rosa fuerte */
     color: white;
-    padding: 10px;
+    padding: 12px 20px;
     border: none;
     cursor: pointer;
-    border-radius: 5px;
-    margin-top: 10px;
+    border-radius: 8px;
+    margin-top: 15px;
+    font-weight: bold;
+    transition: 0.3s ease;
+}
+
+button:hover,
+.button:hover {
+    background: #ff1493;
 }
 
 #payment-message {
     font-weight: bold;
     margin-top: 10px;
+    color: hotpink;
 }
-
 
 .button {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 15px 30px;
-  border: 0;
-  position: relative;
-  overflow: hidden;
-  border-radius: 10rem;
-  transition: all 0.02s;
-  font-weight: bold;
-  cursor: pointer;
-  color: rgb(37, 37, 37);
-  z-index: 0;
-  box-shadow: 0 0px 7px -5px rgba(0, 0, 0, 0.5);
-}
-
-.button:hover {
-  background: rgb(193, 228, 248);
-  color: rgb(33, 0, 85);
-}
-
-.button:active {
-  transform: scale(0.97);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 15px 30px;
+    border-radius: 10rem;
+    transition: all 0.2s;
+    z-index: 0;
+    box-shadow: 0 0px 7px -5px rgba(0, 0, 0, 0.5);
+    position: relative;
+    overflow: hidden;
 }
 
 .hoverEffect {
-  position: absolute;
-  bottom: 0;
-  top: 0;
-  left: 0;
-  right: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 1;
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
 }
 
 .hoverEffect div {
-  background: rgb(222, 0, 75);
-  background: linear-gradient(
-    90deg,
-    rgba(222, 0, 75, 1) 0%,
-    rgba(191, 70, 255, 1) 49%,
-    rgba(0, 212, 255, 1) 100%
-  );
-  border-radius: 40rem;
-  width: 10rem;
-  height: 10rem;
-  transition: 0.4s;
-  filter: blur(20px);
-  animation: effect infinite 3s linear;
-  opacity: 0.5;
+    background: linear-gradient(90deg, #ff1493, #c71585, #00d4ff);
+    border-radius: 40rem;
+    width: 10rem;
+    height: 10rem;
+    filter: blur(20px);
+    opacity: 0.5;
+    animation: effect 3s linear infinite;
 }
 
 .button:hover .hoverEffect div {
-  width: 8rem;
-  height: 8rem;
+    width: 8rem;
+    height: 8rem;
 }
 
 @keyframes effect {
-  0% {
-    transform: rotate(0deg);
-  }
-
-  100% {
-    transform: rotate(360deg);
-  }
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
 }
-
-
-
 
 .bubble {
   position: absolute;
   width: 200px;
   height: 200px;
   border-radius: 50%;
-  box-shadow: inset 0 0 25px rgba (255, 255, 255, 0.25);
   animation: animate_4010 8s ease-in-out infinite;
 }
 
-.bubble:nth-child(2) {
-  position: relative;
-  zoom: 0.45;
-  left: -10px;
-  top: -100px;
-  animation-delay: -4s;
-}
-
-.bubble:nth-child(3) {
-  position: relative;
-  zoom: 0.45;
-  right: -80px;
-  top: -300px;
-  animation-delay: -6s;
-}
-
-.bubble:nth-child(4) {
-  position: relative;
-  zoom: 0.35;
-  left: -120px;
-  bottom: -200px;
-  animation-delay: -3s;
-}
-
-.bubble:nth-child(5) {
-  position: relative;
-  zoom: 0.5;
-  left: 0px;
-  top: 200px;
-  animation-delay: -5s;
-}
-
 @keyframes animate_4010 {
-  0%,100% {
-    transform: translateY(-20px);
-  }
-
-  50% {
-    transform: translateY(20px);
-  }
-}
-
-.bubble::before {
-  content: '';
-  position: absolute;
-  top: 50px;
-  left: 45px;
-  width: 30px;
-  height: 30px;
-  border-radius: 50%;
-  background: #fff;
-  z-index: 10;
-  filter: blur(2px);
-}
-
-.bubble::after {
-  content: '';
-  position: absolute;
-  top: 80px;
-  left: 80px;
-  width: 20px;
-  height: 20px;
-  border-radius: 50%;
-  background: #fff;
-  z-index: 10;
-  filter: blur(2px);
-}
-
-.bubble span {
-  position: absolute;
-  border-radius: 50%;
-}
-
-.bubble span:nth-child(1) {
-  inset: 10px;
-  border-left: 15px solid #0fb4ff;
-  filter: blur(8px);
-}
-
-.bubble span:nth-child(2) {
-  inset: 10px;
-  border-right: 15px solid #ff4484;
-  filter: blur(8px);
-}
-
-.bubble span:nth-child(3) {
-  inset: 10px;
-  border-top: 15px solid #ffeb3b;
-  filter: blur(8px);
-}
-
-.bubble span:nth-child(4) {
-  inset: 30px;
-  border-left: 15px solid #ff4484;
-  filter: blur(12px);
-}
-
-.bubble span:nth-child(5) {
-  inset: 10px;
-  border-bottom: 10px solid #fff;
-  filter: blur(8px);
-  transform: rotate(330deg);
+  0%,100% { transform: translateY(-20px); }
+  50% { transform: translateY(20px); }
 }
