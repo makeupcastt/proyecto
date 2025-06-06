@@ -14,7 +14,6 @@ body {
   padding-bottom: 60px;
 }
 
-
 header {
   background-color: #ffb6c1;
   color: white;
@@ -89,8 +88,12 @@ h2 {
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
   padding: 20px;
   width: 220px;
+  min-height: 350px; /* Altura mínima para uniformidad */
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   animation: fadeIn 0.8s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Distribuye el contenido uniformemente */
 }
 
 .producto:hover {
@@ -146,7 +149,6 @@ h2 {
   }
 }
 
-/* Footer fijo (opcional) */
 footer {
   position: fixed;
   bottom: 0;
@@ -158,6 +160,7 @@ footer {
   font-size: 14px;
   box-shadow: 0 -3px 10px rgba(0,0,0,0.15);
 }
+
 .form-container {
   max-width: 600px;
   margin: 50px auto;
