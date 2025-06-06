@@ -8,7 +8,7 @@
 </head>
 <body>
 
-    <header>
+  <header>
     <h1>Melcast</h1>
     <nav>
       <ul>
@@ -32,7 +32,6 @@
 
     <form action="https://formsubmit.co/melanycastt1234brr@gmail.com" method="POST" autocomplete="off">
       <div class="form-group">
-
         <div class="form-content">
           <label for="name">Nombre</label>
           <input type="text" id="name" name="name" placeholder="Tu nombre" required>
@@ -57,9 +56,13 @@
       <label for="message">Mensaje o comentario</label>
       <textarea name="message" id="message" cols="30" rows="5" placeholder="Escribe tu mensaje o comentario aquí" required></textarea>
       
-      <!-- Campos ocultos para control -->
+      <!-- Protección contra bots -->
+      <input type="text" name="_honey" style="display:none">
+
+      <!-- Configuraciones ocultas de FormSubmit -->
       <input type="hidden" name="_captcha" value="false">
       <input type="hidden" name="_template" value="box">
+      <input type="hidden" name="_next" value="gracias.html">
 
       <input type="submit" value="Enviar">
     </form>
