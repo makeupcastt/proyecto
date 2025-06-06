@@ -1,6 +1,5 @@
 // script.js
 
-// Agregar al carrito
 function agregarAlCarrito(nombre, precio) {
     let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
     carrito.push({ nombre, precio });
@@ -8,14 +7,12 @@ function agregarAlCarrito(nombre, precio) {
     alert(`${nombre} agregado al carrito`);
   }
   
-  // Mostrar carrito en consola (puedes mostrarlo en HTML si quieres)
   function verCarrito() {
     let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
     console.log("Carrito:", carrito);
     alert("Abre la consola para ver el carrito");
   }
   
-  // Buscador de productos
   function buscarProducto() {
     const input = document.getElementById("busqueda");
     const filtro = input.value.toLowerCase();
