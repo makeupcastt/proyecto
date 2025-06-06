@@ -7,8 +7,18 @@ body {
     align-items: center;
     height: 100vh;
     background: rgba(0, 0, 0, 0.5) url('gr.jpeg') no-repeat center/cover;
-
 }
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-image: url('fondo.jpeg');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      overflow-x: hidden;
+    }
+
+
 
 .container {
     background: #ffffff;
