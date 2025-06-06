@@ -4,8 +4,71 @@
   <meta charset="UTF-8">
   <title>RIMELS - Melcast</title>
   <link rel="stylesheet" href="styles.css">
-  <link rel="stylesheet" href="carrito.html">
-    <link rel="stylesheet" href="diseño.css">
+  <link rel="stylesheet" href="diseño.css">
+  <style>
+    body {
+      background-image: url('fondo.jpeg');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      font-family: Arial, sans-serif;
+      color: #000;
+    }
+
+    .container {
+      position: relative;
+    }
+
+    .producto {
+      margin: 20px;
+      padding: 15px;
+      background-color: rgba(255, 255, 255, 0.8);
+      border-radius: 10px;
+      text-align: center;
+      display: inline-block;
+    }
+
+    .button {
+      background-color: #ff69b4;
+      border: none;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .button:hover {
+      background-color: #ff1493;
+    }
+
+    input#busqueda {
+      margin: 20px;
+      padding: 10px;
+      width: 80%;
+      max-width: 400px;
+    }
+
+    header {
+      background-color: #fff;
+      padding: 20px;
+      text-align: center;
+    }
+
+    nav ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    nav ul li {
+      display: inline;
+      margin: 0 10px;
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      color: #333;
+    }
+  </style>
 </head>
 <body>
   <header>
@@ -13,7 +76,7 @@
     <nav>
       <ul>
         <li><a href="index.html">Inicio</a></li>
-          <li><a href="carrito.html">Ir al Carrito</a></li>
+        <li><a href="carrito.html">Ir al Carrito</a></li>
         <li><a href="labiales.html">Labiales</a></li>
         <li><a href="gloss.html">Gloss</a></li>
         <li><a href="sombras.html">Sombras</a></li>
@@ -25,99 +88,43 @@
     </nav>
   </header>
 
-  <div class="container">
-    <div class="bubble">
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-    </div>
-    <div class="bubble">
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-    </div>
-    <div class="bubble">
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-    </div>
-    <div class="bubble">
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-    </div>
-    <div class="bubble">
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-    </div>
- </div><main>
-    <h2>RIMELS</h2>
-
-    <input type="text" id="busqueda" onkeyup="buscarProducto()" placeholder="Buscar rimels...">
+  <main>
+    <h2>RÍMELS</h2>
+    <input type="text" id="busqueda" onkeyup="buscarProducto()" placeholder="Buscar rímels...">
 
     <div class="producto">
-          <img src="R1.jpeg" alt="Descripción de la imagen" width="300">
-      <h3>cepillo delgado</h3>
+      <img src="R1.jpeg" alt="Cepillo delgado" width="300">
+      <h3>Cepillo Delgado</h3>
       <p>Precio: $78 MXN</p>
-      <button class="button" onclick="agregarAlCarrito('cepillo delgado', 78)">
-  comprar
-  <div class="hoverEffect">
-    <div></div>
-  </div>
-</button>
-
+      <button class="button" onclick="agregarAlCarrito('Cepillo Delgado', 78)">Comprar</button>
     </div>
 
     <div class="producto">
-          <img src=".jpeg" alt="DescrR2ipción de la imagen" width="300">
-      <h3>cepillo grueso</h3>
+      <img src="R2.jpeg" alt="Cepillo grueso" width="300">
+      <h3>Cepillo Grueso</h3>
       <p>Precio: $127 MXN</p>
-      <button class="button"onclick="agregarAlCarrito('cpillo grueso', 127)">
-  comprar
-  <div class="hoverEffect">
-    <div></div>
-  </div>
-</button>
-
+      <button class="button" onclick="agregarAlCarrito('Cepillo Grueso', 127)">Comprar</button>
     </div>
-<script>
-   function agregarAlCarrito() {
-            let producto = { nombre: "rimel delgado", precio: 78 };
-            let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
-            carrito.push(producto);
-            localStorage.setItem("carrito", JSON.stringify(carrito));
-            alert("Producto agregado al carrito!");
-        }
-         function agregarAlCarrito() {
-            let producto = { nombre: "rimel grueso", precio: 127 };
-            let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
-            carrito.push(producto);
-            localStorage.setItem("carrito", JSON.stringify(carrito));
-            alert("Producto agregado al carrito!");
-        }
-</script>
-<style>
-        body {
-            background-image: url('fondo.jpeg'); 
-            background-size: cover; 
-            background-position: center; 
-            background-repeat: no-repeat;
-        }
-        </style>
-    <br>
   </main>
 
-  <script src="script1.js"></script>
+  <script>
+    function agregarAlCarrito(nombre, precio) {
+      const producto = { nombre, precio };
+      const carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+      carrito.push(producto);
+      localStorage.setItem("carrito", JSON.stringify(carrito));
+      alert("Producto agregado al carrito!");
+    }
+
+    function buscarProducto() {
+      const input = document.getElementById('busqueda').value.toLowerCase();
+      const productos = document.getElementsByClassName('producto');
+
+      for (let i = 0; i < productos.length; i++) {
+        const titulo = productos[i].getElementsByTagName('h3')[0].innerText.toLowerCase();
+        productos[i].style.display = titulo.includes(input) ? '' : 'none';
+      }
+    }
+  </script>
 </body>
 </html>
